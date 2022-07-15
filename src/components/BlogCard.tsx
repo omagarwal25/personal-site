@@ -10,9 +10,8 @@ export const BlogCard: FC<{ post: Post; carousel?: boolean }> = ({
   return (
     <div
       className={`card ${
-        carousel ? "carousel-item max-w-xs" : "w-full"
-      } w-96 bg-base-100 shadow-xl
-      `}
+        carousel ? "carousel-item w-96 max-w-xs" : "w-full"
+      } bg-base-100 shadow-xl`}
     >
       <figure>
         {/* eslint-disable-next-line @next/next/no-img-element */}
