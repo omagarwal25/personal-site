@@ -15,7 +15,14 @@ const PostsByTag: NextPageWithLayout = () => {
 
   const filtered = data.filter((post) => post.tags.includes(tag));
 
-  return <BlogDisplay posts={filtered} />;
+  return (
+    <>
+      <h1 className="mt-5 text-center text-2xl font-bold">
+        Posts with tag {tag}
+      </h1>
+      <BlogDisplay posts={filtered} />
+    </>
+  );
 };
 
 PostsByTag.getLayout = (page) => <UniversalLayout>{page}</UniversalLayout>;
