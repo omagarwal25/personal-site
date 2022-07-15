@@ -5,7 +5,6 @@ import { BlogCard } from "./BlogCard";
 
 export const BlogPreview: FC<{}> = () => {
   const { data } = trpc.useQuery(["posts.all"]);
-  console.log("hey");
   if (!data) return null;
 
   data.sort(

@@ -6,7 +6,6 @@ import { createRouter } from "./context";
 
 export const postRouter = createRouter().query("all", {
   resolve() {
-    console.log("hi");
     const dirFiles = fs.readdirSync(
       path.join(process.cwd(), "src", "pages", "posts"),
       {
