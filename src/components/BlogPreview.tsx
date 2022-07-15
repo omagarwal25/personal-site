@@ -16,7 +16,7 @@ export const BlogPreview: FC<{}> = () => {
   const limited = data.slice(0, 3);
 
   return (
-    <div className="carousel carousel-vertical h-2/3 gap-2 xl:flex xl:flex-row">
+    <div className="carousel carousel-vertical h-1/2 gap-2 xl:flex xl:flex-row">
       {limited.map((blog) => (
         <BlogCard post={blog} key={blog.slug} carousel />
       ))}

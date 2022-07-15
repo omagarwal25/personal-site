@@ -20,8 +20,8 @@ const Home: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      <div>
-        <Parallax pages={6} ref={parallaxRef}>
+      <div className="flex h-screen flex-col">
+        <Parallax pages={5} ref={parallaxRef}>
           <ParallaxLayer
             speed={0.5}
             // onClick={() => parallaxRef.current?.scrollTo(1)}
@@ -168,7 +168,7 @@ const Home: NextPageWithLayout = () => {
           {/* Blog Page */}
           <ParallaxLayer
             speed={0.5}
-            factor={0.7}
+            factor={1}
             offset={4}
             className="flex flex-col items-center gap-5 bg-secondary p-10"
           >
@@ -180,14 +180,9 @@ const Home: NextPageWithLayout = () => {
               <a className="btn btn-accent">Show More</a>
             </Link>
           </ParallaxLayer>
-
-          {/* Footer */}
-          <ParallaxLayer speed={1} offset={4.69} sticky={{ start: 4.69 }}>
-            <Footer />
-          </ParallaxLayer>
         </Parallax>
-        <div className="fixed bottom-0"> </div>
       </div>
+      <Footer />
     </>
   );
 };

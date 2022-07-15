@@ -1,4 +1,3 @@
-import { Icon } from "@iconify/react";
 import Link from "next/link";
 
 export const Nav = ({ notSticky }: { notSticky?: boolean }) => {
@@ -20,7 +19,9 @@ text-primary-content shadow-sm transition-all duration-100`}
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <a>Contact &amp; Links</a>
+              <Link href="/contact">
+                <a className="btn btn-primary">Contact &amp; Links</a>
+              </Link>
             </li>
           </ul>
         </div>
