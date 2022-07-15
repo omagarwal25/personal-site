@@ -10,7 +10,12 @@ const Posts: NextPageWithLayout = () => {
   if (!data) return null;
 
   // display all the posts in a grid
-  return <BlogDisplay posts={data} />;
+  return (
+    <>
+      <h1 className="mt-5 text-center text-2xl font-bold">All Posts</h1>
+      <BlogDisplay posts={data} />
+    </>
+  );
 };
 
 Posts.getLayout = (page) => <UniversalLayout>{page}</UniversalLayout>;

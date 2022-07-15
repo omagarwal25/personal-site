@@ -23,6 +23,11 @@ text-primary-content shadow-sm transition-all duration-100`}
                 <a className="btn btn-primary">Contact &amp; Links</a>
               </Link>
             </li>
+            <li>
+              <Link href="/posts">
+                <a className="btn btn-primary">Posts</a>
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
