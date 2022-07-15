@@ -6,7 +6,10 @@ export const Footer = () => {
       <footer className="footer bg-base-200 p-10 text-base-content">
         <div>
           <span className="footer-title">Built With Love Using</span>
-          <a className="link link-hover flex items-center gap-2">
+          <a
+            className="link link-hover flex items-center gap-2"
+            href="https://tailwindcss.com/"
+          >
             Tailwindcss
             <Icon icon="logos:tailwindcss-icon" />
           </a>
