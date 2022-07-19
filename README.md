@@ -2,4 +2,6 @@
 
 This is the repo for @omagarwal25's personal website. Feel free to work.
 
-- [] Get Projects to show up
+- [ ] Inspirations page for people like Theo and KATT
+- [ ] About me page for contact details and general info
+- [ ] SEO
