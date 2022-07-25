@@ -2,7 +2,7 @@ import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Head from "next/head";
 import Link from "next/link";
 import { ReactElement, useRef } from "react";
-import { BlogPreview } from "~src/components/blog/BlogPreview";
+import { PostPreview } from "~src/components/post/PostPreview";
 import { Footer } from "~src/components/Footer";
 import { Nav } from "~src/components/Nav";
 import { MainPage } from "~src/components/MainPage";
@@ -49,7 +49,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <h1 className="text-center text-4xl font-bold text-secondary-content">
               Blog
             </h1>
-            <BlogPreview data={data} />
+            <PostPreview data={data} />
             <Link href="/posts">
               <a className="btn btn-accent">Show More</a>
             </Link>

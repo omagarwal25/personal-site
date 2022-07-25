@@ -10,7 +10,7 @@ const ContactPage: NextPageWithLayout = () => {
           Amazing and smart people
         </h1>
         <div className="flex items-center gap-2">
-          <div className="card bg-base-200 shadow-md">
+          <div className="card bg-base-200">
             <div className="card-body">
               <h5 className="card-title">Theo</h5>
               <p className="card-text">
@@ -20,7 +20,7 @@ const ContactPage: NextPageWithLayout = () => {
               </p>
             </div>
           </div>
-          <div className="card bg-base-200 shadow-md">
+          <div className="card bg-base-200">
             <div className="card-body">
               <h5 className="card-title">Alex / KATT</h5>
               <p className="card-text">

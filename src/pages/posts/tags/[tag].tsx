@@ -1,6 +1,6 @@
 import { GetStaticPaths, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
-import { BlogDisplay } from "~src/components/blog/BlogDisplay";
+import { PostDisplay } from "~src/components/post/PostDisplay";
 import { UniversalLayout } from "~src/layouts/UniversalLayout";
 import { getAllPosts } from "~src/utils/posts";
 import { ReactElement } from "react";
@@ -22,7 +22,7 @@ const PostsByTag = ({
       <h1 className="mt-5 text-center text-2xl font-bold">
         Posts with tag {tag}
       </h1>
-      <BlogDisplay posts={filtered} />
+      <PostDisplay posts={filtered} />
     </>
   );
 };

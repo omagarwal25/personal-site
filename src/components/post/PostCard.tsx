@@ -3,15 +3,15 @@ import { FC } from "react";
 import { Post } from "~src/utils/types";
 import { Badges } from "./Badges";
 
-export const BlogCard: FC<{ post: Post; carousel?: boolean }> = ({
+export const PostCard: FC<{ post: Post; carousel?: boolean }> = ({
   post,
   carousel,
 }) => {
   return (
     <div
       className={`card ${
-        carousel ? "carousel-item w-96 max-w-xs" : "w-full"
-      } bg-base-100 shadow-xl`}
+        carousel ? "carousel-item w-96 max-w-xs" : ""
+      } bg-base-100`}
     >
       <figure>
         {/* eslint-disable-next-line @next/next/no-img-element */}

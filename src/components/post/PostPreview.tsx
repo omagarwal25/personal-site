@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Post } from "~src/utils/types";
-import { BlogCard } from "./BlogCard";
+import { PostCard } from "./PostCard";
 
-export const BlogPreview: FC<{ data: Post[] }> = ({ data }) => {
+export const PostPreview: FC<{ data: Post[] }> = ({ data }) => {
   data.sort(
     (a, b) =>
       new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
@@ -13,7 +13,7 @@ export const BlogPreview: FC<{ data: Post[] }> = ({ data }) => {
   return (
     <div className="carousel carousel-vertical h-1/2 gap-2 xl:flex xl:flex-row">
       {limited.map((blog) => (
-        <BlogCard post={blog} key={blog.slug} carousel />
+        <PostCard post={blog} key={blog.slug} carousel />
       ))}
     </div>
   );

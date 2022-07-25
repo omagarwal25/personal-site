@@ -1,6 +1,6 @@
 import { InferGetStaticPropsType } from "next";
 import { ReactElement } from "react";
-import { BlogDisplay } from "~src/components/blog/BlogDisplay";
+import { PostDisplay } from "~src/components/post/PostDisplay";
 import { UniversalLayout } from "~src/layouts/UniversalLayout";
 import { getAllPosts } from "~src/utils/posts";
 
@@ -9,7 +9,7 @@ const Posts = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <h1 className="mt-5 text-center text-2xl font-bold">All Posts</h1>
-      <BlogDisplay posts={data} />
+      <PostDisplay posts={data} />
     </>
   );
 };
