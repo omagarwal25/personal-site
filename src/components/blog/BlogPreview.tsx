@@ -1,12 +1,8 @@
-import Link from "next/link";
 import { FC } from "react";
-import { trpc } from "~src/utils/trpc";
+import { Post } from "~src/utils/types";
 import { BlogCard } from "./BlogCard";
 
-export const BlogPreview: FC<{}> = () => {
-  const { data } = trpc.useQuery(["posts.all"]);
-  if (!data) return null;
-
+export const BlogPreview: FC<{ data: Post[] }> = ({ data }) => {
   data.sort(
     (a, b) =>
       new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()

@@ -1,14 +1,10 @@
-import { BlogCard } from "~src/components/BlogCard";
-import { BlogDisplay } from "~src/components/BlogDisplay";
+import { InferGetStaticPropsType } from "next";
+import { ReactElement } from "react";
+import { BlogDisplay } from "~src/components/blog/BlogDisplay";
 import { UniversalLayout } from "~src/layouts/UniversalLayout";
-import { trpc } from "~src/utils/trpc";
-import { NextPageWithLayout } from "./_app";
+import { getAllPosts } from "~src/utils/posts";
 
-const Posts: NextPageWithLayout = () => {
-  const { data } = trpc.useQuery(["posts.all"]);
-
-  if (!data) return null;
-
+const Posts = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   // display all the posts in a grid
   return (
     <>
@@ -18,6 +14,18 @@ const Posts: NextPageWithLayout = () => {
   );
 };
 
-Posts.getLayout = (page) => <UniversalLayout>{page}</UniversalLayout>;
+export const getStaticProps = async () => {
+  const posts = getAllPosts();
+
+  return {
+    props: {
+      data: posts,
+    },
+  };
+};
+
+Posts.getLayout = (page: ReactElement) => (
+  <UniversalLayout>{page}</UniversalLayout>
+);
 
 export default Posts;

@@ -1,16 +1,17 @@
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Head from "next/head";
 import Link from "next/link";
-import { useRef } from "react";
-import { BlogPreview } from "~src/components/BlogPreview";
+import { ReactElement, useRef } from "react";
+import { BlogPreview } from "~src/components/blog/BlogPreview";
 import { Footer } from "~src/components/Footer";
 import { Nav } from "~src/components/Nav";
-import { NextPageWithLayout } from "./_app";
 import { MainPage } from "~src/components/MainPage";
-import { ProjectPage } from "~src/components/ProjectPage";
-import { TechPage } from "~src/components/TechPage";
+import { ProjectPage } from "~src/components/project/ProjectPage";
+import { TechPage } from "~src/components/technology/TechPage";
+import { getAllPosts } from "~src/utils/posts";
+import { InferGetStaticPropsType } from "next";
 
-const Home: NextPageWithLayout = () => {
+const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const parallaxRef = useRef<IParallax>(null);
 
   return (
@@ -48,7 +49,7 @@ const Home: NextPageWithLayout = () => {
             <h1 className="text-center text-4xl font-bold text-secondary-content">
               Blog
             </h1>
-            <BlogPreview />
+            <BlogPreview data={data} />
             <Link href="/posts">
               <a className="btn btn-accent">Show More</a>
             </Link>
@@ -60,6 +61,16 @@ const Home: NextPageWithLayout = () => {
   );
 };
 
-Home.getLayout = (page) => <>{page}</>;
+export const getStaticProps = async () => {
+  const posts = getAllPosts();
+
+  return {
+    props: {
+      data: posts,
+    },
+  };
+};
+
+Home.getLayout = (page: ReactElement) => <>{page}</>;
 
 export default Home;

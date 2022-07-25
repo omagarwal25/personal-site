@@ -16,7 +16,7 @@ export const ProjectPage = () => {
         <Project
           title="Personal Site"
           description="My personal site. It features a blog, a portfolio, and a contact form. You are on it right now!"
-          lang={["ts", "react", "tRPC"]}
+          lang={["ts", "react"]}
           deploy="https://personal-site-beta-puce.vercel.app/"
           repo="https://github.com/omagarwal25/personal-site"
         />

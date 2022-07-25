@@ -1,13 +1,15 @@
+import { GetStaticPaths, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
-import { BlogDisplay } from "~src/components/BlogDisplay";
+import { BlogDisplay } from "~src/components/blog/BlogDisplay";
 import { UniversalLayout } from "~src/layouts/UniversalLayout";
-import { NextPageWithLayout } from "~src/pages/_app";
-import { trpc } from "~src/utils/trpc";
+import { getAllPosts } from "~src/utils/posts";
+import { ReactElement } from "react";
 
-const PostsByTag: NextPageWithLayout = () => {
+const PostsByTag = ({
+  data,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const { tag } = router.query;
-  const { data } = trpc.useQuery(["posts.all"]);
 
   if (!tag || typeof tag !== "string" || !data) {
     return <div>No tag provided</div>;
@@ -25,6 +27,37 @@ const PostsByTag: NextPageWithLayout = () => {
   );
 };
 
-PostsByTag.getLayout = (page) => <UniversalLayout>{page}</UniversalLayout>;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = getAllPosts().flatMap((e) => e.tags);
+
+  // dedupe psots
+  const deduped = posts.filter(
+    (value, index, self) => self.indexOf(value) === index
+  );
+
+  return {
+    paths: deduped.map((tag) => ({
+      params: {
+        tag,
+      },
+    })),
+    // https://nextjs.org/docs/basic-features/data-fetching#fallback-blocking
+    fallback: "blocking",
+  };
+};
+
+export async function getStaticProps() {
+  const posts = getAllPosts();
+
+  return {
+    props: {
+      data: posts,
+    },
+  };
+}
+
+PostsByTag.getLayout = (page: ReactElement) => (
+  <UniversalLayout>{page}</UniversalLayout>
+);
 
 export default PostsByTag;
